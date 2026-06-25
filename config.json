@@ -2,7 +2,10 @@
     "name": "Màn hình OLED I2C",
     "description": "Mục mở rộng cho màn hình OLED I2C",
     "libs": [
-        "ssd1306.py"
+        "ssd1306.py",
+        "ezFBfont.py",
+        "ezFBmarquee.py",
+        "F8x13.py"
     ],
     "blocks": [
         "definition.js"

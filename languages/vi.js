@@ -1,25 +1,45 @@
-Blockly.Msg.BLOCK_OLED_CREATE_MESSAGE0 = "tạo %1 dài %2 cao %3 địa chỉ %4"
-Blockly.Msg.BLOCK_OLED_CREATE_MESSAGE1 = "màn hình oled"
-Blockly.Msg.BLOCK_OLED_CREATE_TOOLTIP = "Khởi tạo màn hình OLED với chiều dài, chiều cao và địa chỉ được chọn"
-Blockly.Msg.BLOCK_OLED_CREATE_HELPURL = ""
+// Vietnamese messages for ezFBfont and ezFBmarquee OLED blocks
 
-Blockly.Msg.BLOCK_OLED_TEXT_MESSAGE0 = "%1 in ra %2 %3 tại x %4 y %5 màu %6"
-Blockly.Msg.BLOCK_OLED_TEXT_MESSAGE1 = "màn hình oled"
-Blockly.Msg.BLOCK_OLED_TEXT_MESSAGE2 = "trắng"
-Blockly.Msg.BLOCK_OLED_TEXT_MESSAGE3 = "đen"
-Blockly.Msg.BLOCK_OLED_TEXT_TOOLTIP = "In ra dòng chữ tại vị trí và màu sắc được chọn"
-Blockly.Msg.BLOCK_OLED_TEXT_HELPURL = ""
+// Toolbox labels
+Blockly.Msg.BLOCK_OLED_TOOLBOX_STATIC_TEXT = "--- Văn bản tĩnh ---"
+Blockly.Msg.BLOCK_OLED_TOOLBOX_DYNAMIC_TEXT = "--- Văn bản động ---"
 
-Blockly.Msg.BLOCK_OLED_FILL_MESSAGE0 = "%1 xóa màn hình bằng màu %2"
-Blockly.Msg.BLOCK_OLED_FILL_MESSAGE1 = "màn hình oled"
-Blockly.Msg.BLOCK_OLED_FILL_MESSAGE2 = "đen"
-Blockly.Msg.BLOCK_OLED_FILL_MESSAGE3 = "trắng"
-Blockly.Msg.BLOCK_OLED_FILL_TOOLTIP = "Xóa toàn màn hình với màu được chọn"
-Blockly.Msg.BLOCK_OLED_FILL_HELPURL = ""
+// Static text (ezFBfont) blocks
+Blockly.Msg.BLOCK_OLED_STATIC_INIT_MESSAGE0 = "Khởi tạo oled văn bản tĩnh"
+Blockly.Msg.BLOCK_OLED_STATIC_INIT_TOOLTIP = "Khởi tạo màn hình OLED và văn bản tĩnh"
+Blockly.Msg.BLOCK_OLED_STATIC_INIT_HELPURL = ""
 
-Blockly.Msg.BLOCK_OLED_TURN_MESSAGE0 = "%1 %2"
-Blockly.Msg.BLOCK_OLED_TURN_MESSAGE1 = "màn hình oled"
-Blockly.Msg.BLOCK_OLED_TURN_MESSAGE2 = "bật"
-Blockly.Msg.BLOCK_OLED_TURN_MESSAGE3 = "tắt"
-Blockly.Msg.BLOCK_OLED_TURN_TOOLTIP = "Bật hoặc tắt màn hình OLED"
-Blockly.Msg.BLOCK_OLED_TURN_HELPURL = ""
+Blockly.Msg.BLOCK_OLED_STATIC_TEXT_LINE_TOOLTIP = "Một dòng văn bản cho khối văn bản tĩnh"
+Blockly.Msg.BLOCK_OLED_STATIC_TEXT_ITEM = "Dòng văn bản"
+Blockly.Msg.BLOCK_OLED_STATIC_TEXT_CONTAINER = "Các dòng văn bản"
+Blockly.Msg.BLOCK_OLED_STATIC_TEXT_SHOW = "Hiển thị trên oled"
+Blockly.Msg.BLOCK_OLED_STATIC_TEXT_AT_X = "tại x"
+Blockly.Msg.BLOCK_OLED_STATIC_TEXT_Y = "y"
+Blockly.Msg.BLOCK_OLED_STATIC_TEXT_DEFAULT = "Xin chào"
+Blockly.Msg.BLOCK_OLED_STATIC_TEXT_TOOLTIP = "Hiển thị văn bản tĩnh trên OLED. Nhấn bánh răng để thêm dòng."
+Blockly.Msg.BLOCK_OLED_STATIC_TEXT_HELPURL = ""
+
+// Dynamic text (ezFBmarquee) blocks
+Blockly.Msg.BLOCK_OLED_MARQUEE_INIT_MESSAGE0 = "Khởi tạo oled văn bản động"
+Blockly.Msg.BLOCK_OLED_MARQUEE_INIT_TOOLTIP = "Khởi tạo màn hình OLED và văn bản động"
+Blockly.Msg.BLOCK_OLED_MARQUEE_INIT_HELPURL = ""
+
+Blockly.Msg.BLOCK_OLED_MARQUEE_START_MESSAGE0 = "Chọn văn bản động %1"
+Blockly.Msg.BLOCK_OLED_MARQUEE_START_TOOLTIP = "Chọn văn bản động trên màn hình OLED"
+Blockly.Msg.BLOCK_OLED_MARQUEE_START_HELPURL = ""
+
+Blockly.Msg.BLOCK_OLED_MARQUEE_STEP_MESSAGE0 = "Dịch chuyển %1"
+Blockly.Msg.BLOCK_OLED_MARQUEE_STEP_TOOLTIP = "Dịch chuyển văn bản một số bước (1-5)"
+Blockly.Msg.BLOCK_OLED_MARQUEE_STEP_HELPURL = ""
+
+Blockly.Msg.BLOCK_OLED_MARQUEE_PAUSE_MESSAGE0 = "Tạm dừng %1"
+Blockly.Msg.BLOCK_OLED_MARQUEE_PAUSE_TOOLTIP = "Tạm dừng chuyển động trong một số bước"
+Blockly.Msg.BLOCK_OLED_MARQUEE_PAUSE_HELPURL = ""
+
+Blockly.Msg.BLOCK_OLED_MARQUEE_STOP_MESSAGE0 = "Dừng dịch chuyển"
+Blockly.Msg.BLOCK_OLED_MARQUEE_STOP_TOOLTIP = "Dừng dịch chuyển"
+Blockly.Msg.BLOCK_OLED_MARQUEE_STOP_HELPURL = ""
+
+Blockly.Msg.BLOCK_OLED_MARQUEE_ACTIVE_MESSAGE0 = "đang chạy?"
+Blockly.Msg.BLOCK_OLED_MARQUEE_ACTIVE_TOOLTIP = "Kiểm tra văn bản động có đang chạy hay không"
+Blockly.Msg.BLOCK_OLED_MARQUEE_ACTIVE_HELPURL = ""

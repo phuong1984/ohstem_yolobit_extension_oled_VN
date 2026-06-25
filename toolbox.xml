@@ -1,12 +1,15 @@
 <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
-  <category name="OLED LCD" colour="#27b0ba" icon="tv">
-    <block type="oled_create"/>
-    <block type="oled_text">
-      <value name="TEXT"><shadow type="text"><field name="TEXT">hello</field></shadow></value>
-      <value name="X"><shadow type="math_number"><field name="NUM">0</field></shadow></value>
-      <value name="Y"><shadow type="math_number"><field name="NUM">0</field></shadow></value>
-    </block>    
-    <block type="oled_fill"/>
-    <block type="oled_onoff"/>
+  <category name="OLED" colour="#27b0ba" icon="tv">
+    <label text="%{BKY_BLOCK_OLED_TOOLBOX_STATIC_TEXT}"></label>
+    <block type="oled_static_init"></block>
+    <block type="oled_static_text"></block>
+    
+    <label text="%{BKY_BLOCK_OLED_TOOLBOX_DYNAMIC_TEXT}"></label>
+    <block type="oled_marquee_init"></block>
+    <block type="oled_marquee_start"></block>
+    <block type="oled_marquee_step"></block>
+    <block type="oled_marquee_pause"></block>
+    <block type="oled_marquee_stop"></block>
+    <block type="oled_marquee_active"></block>
   </category>
 </xml>

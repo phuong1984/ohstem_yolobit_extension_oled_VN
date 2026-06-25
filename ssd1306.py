@@ -1,5 +1,7 @@
 #MicroPython SSD1306 OLED driver, I2C and SPI interfaces created by Adafruit
-
+import machine
+from yolobit import *
+from utility import *
 import time
 import framebuf
 
@@ -79,13 +81,16 @@ class SSD1306:
             # displays with width of 64 pixels are shifted by 32
             x0 += 32
             x1 += 32
-        self.write_cmd(SET_COL_ADDR)
-        self.write_cmd(x0)
-        self.write_cmd(x1)
-        self.write_cmd(SET_PAGE_ADDR)
-        self.write_cmd(0)
-        self.write_cmd(self.pages - 1)
-        self.write_framebuf()
+        try:
+            self.write_cmd(SET_COL_ADDR)
+            self.write_cmd(x0)
+            self.write_cmd(x1)
+            self.write_cmd(SET_PAGE_ADDR)
+            self.write_cmd(0)
+            self.write_cmd(self.pages - 1)
+            self.write_framebuf()
+        except:
+            print('Oled not found')
 
     def fill(self, col):
         self.framebuf.fill(col)
@@ -99,10 +104,36 @@ class SSD1306:
     def text(self, string, x, y, col=1):
         self.framebuf.text(string, x, y, col)
 
+    def hline(self, x, y, w, col):
+        self.framebuf.hline(x, y, w, col)
+
+    def vline(self, x, y, h, col):
+        self.framebuf.vline(x, y, h, col)
+
+    def line(self, x1, y1, x2, y2, col):
+        self.framebuf.line(x1, y1, x2, y2, col)
+
+    def rect(self, x, y, w, h, col):
+        self.framebuf.rect(x, y, w, h, col)
+
+    def fill_rect(self, x, y, w, h, col):
+        self.framebuf.fill_rect(x, y, w, h, col)
+    
+    def ellipse(self, x, y, xr, yr, col, f):
+        self.framebuf.ellipse(x, y, xr, yr, col, f)
+    
+    def poly(self, x, y, coords, col, f):
+        self.framebuf.poly(x, y, coords, col, f)
+
+    def blit(self, fbuf, x, y):
+        self.framebuf.blit(fbuf, x, y)
+
 
 class SSD1306_I2C(SSD1306):
-    def __init__(self, width, height, i2c, addr=0x3c, external_vcc=False):
-        self.i2c = i2c
+    def __init__(self, width=128, height=64, addr=0x3c, external_vcc=False):
+        scl_pin = machine.Pin(pin19.pin)
+        sda_pin = machine.Pin(pin20.pin)
+        self.i2c = machine.SoftI2C(scl=scl_pin, sda=sda_pin)       
         self.addr = addr
         self.temp = bytearray(2)
         # Add an extra byte to the data buffer to hold an I2C data/command byte
@@ -113,7 +144,11 @@ class SSD1306_I2C(SSD1306):
         self.buffer = bytearray(((height // 8) * width) + 1)
         self.buffer[0] = 0x40  # Set first byte of data buffer to Co=0, D/C=1
         self.framebuf = framebuf.FrameBuffer1(memoryview(self.buffer)[1:], width, height)
-        super().__init__(width, height, external_vcc)
+        try:
+            super().__init__(width, height, external_vcc)
+        except:
+            say('OLED not found')
+            raise Exception('OLED not found')
 
     def write_cmd(self, cmd):
         self.temp[0] = 0x80 # Co=1, D/C#=0
