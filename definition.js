@@ -225,6 +225,15 @@ Blockly.Blocks['oled_marquee_start'] = {
       "tooltip": Blockly.Msg.BLOCK_OLED_MARQUEE_START_TOOLTIP,
       "helpUrl": Blockly.Msg.BLOCK_OLED_MARQUEE_START_HELPURL
     });
+
+    // Attach a shadow block with default value "Xin chào"
+    var shadowXml = Blockly.utils.xml.createElement('shadow');
+    shadowXml.setAttribute('type', 'text');
+    var field = Blockly.utils.xml.createElement('field');
+    field.setAttribute('name', 'TEXT');
+    field.appendChild(Blockly.utils.xml.createTextNode('Xin chào'));
+    shadowXml.appendChild(field);
+    this.getInput('TEXT').connection.setShadowDom(shadowXml);
   }
 };
 
