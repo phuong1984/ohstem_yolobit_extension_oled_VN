@@ -225,11 +225,11 @@ Blockly.Blocks['oled_marquee_init'] = {
 Blockly.Python['oled_marquee_init'] = function(block) {
   Blockly.Python.definitions_['import_ssd1306'] = 'from ssd1306 import SSD1306_I2C';
   Blockly.Python.definitions_['import_ezFBmarquee'] = 'from ezFBmarquee import ezFBmarquee';
-  Blockly.Python.definitions_['import_F8x13'] = 'import F8x13';
+  Blockly.Python.definitions_['import_Fx24'] = 'import Fx24';
 
   var code = [
     'oled = SSD1306_I2C()',
-    'dynamic_text = ezFBmarquee(oled, F8x13)',
+    'dynamic_text = ezFBmarquee(oled, Fx24)',
     ''
   ].join('\n');
   return code;
