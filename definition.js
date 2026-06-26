@@ -392,3 +392,24 @@ Blockly.Python['oled_marquee_active'] = function(block) {
   var code = 'dynamic_text.active()';
   return [code, Blockly.Python.ORDER_ATOMIC];
 };
+
+// --- Block: oled_marquee_rollover ---
+// Check if marquee has completed a cycle (boolean expression)
+Blockly.Blocks['oled_marquee_rollover'] = {
+  init: function() {
+    this.jsonInit({
+      "type": "oled_marquee_rollover",
+      "message0": Blockly.Msg.BLOCK_OLED_MARQUEE_ROLLOVER_MESSAGE0,
+      "args0": [],
+      "output": "Boolean",
+      "colour": "#27b0ba",
+      "tooltip": Blockly.Msg.BLOCK_OLED_MARQUEE_ROLLOVER_TOOLTIP,
+      "helpUrl": Blockly.Msg.BLOCK_OLED_MARQUEE_ROLLOVER_HELPURL
+    });
+  }
+};
+
+Blockly.Python['oled_marquee_rollover'] = function(block) {
+  var code = 'dynamic_text.rollover';
+  return [code, Blockly.Python.ORDER_ATOMIC];
+};

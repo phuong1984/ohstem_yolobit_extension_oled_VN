@@ -11,5 +11,6 @@
     <block type="oled_marquee_pause"></block>
     <block type="oled_marquee_stop"></block>
     <block type="oled_marquee_active"></block>
+    <block type="oled_marquee_rollover"></block>
   </category>
 </xml>

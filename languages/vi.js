@@ -43,3 +43,7 @@ Blockly.Msg.BLOCK_OLED_MARQUEE_STOP_HELPURL = ""
 Blockly.Msg.BLOCK_OLED_MARQUEE_ACTIVE_MESSAGE0 = "đang chạy?"
 Blockly.Msg.BLOCK_OLED_MARQUEE_ACTIVE_TOOLTIP = "Kiểm tra văn bản động có đang chạy hay không"
 Blockly.Msg.BLOCK_OLED_MARQUEE_ACTIVE_HELPURL = ""
+
+Blockly.Msg.BLOCK_OLED_MARQUEE_ROLLOVER_MESSAGE0 = "đã dịch chuyển xong?"
+Blockly.Msg.BLOCK_OLED_MARQUEE_ROLLOVER_TOOLTIP = "Kiểm tra văn bản động đã dịch chuyển xong 1 lần chưa"
+Blockly.Msg.BLOCK_OLED_MARQUEE_ROLLOVER_HELPURL = ""

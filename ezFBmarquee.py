@@ -32,6 +32,7 @@ class ezFBmarquee():
 
         self.name = 'marquee_' + self._font.__name__
         self.string = None
+        self.rollover = False
 
         # font details; only monochrome HLSB fonts are supported
         self._font_format = framebuf.MONO_HLSB
@@ -136,8 +137,9 @@ class ezFBmarquee():
         self._stringwidth = 0
         self._padding = 0
         self._sbwide = 0
-        # delete the scroll buffer and frame
-        del self._scrollframe, self._scrollbuf
+        # delete the scroll buffer and frame if they exist
+        if hasattr(self, '_scrollframe'):
+            del self._scrollframe, self._scrollbuf
         # clean the output framebuffer
         self._outframe.fill(0)
         # Fill the output area with current background
@@ -203,7 +205,8 @@ class ezFBmarquee():
         self._device.blit(self._outframe, self._x, self._y) #, -1, self._palette)
         # Decrease the pause count towards zero
         self._pause = -1 if self._pause == -1 else max(0, self._pause - 1)
-        # return rollover status
+        # store and return rollover status
+        self.rollover = res
         return res
 
     def pause(self, pause):

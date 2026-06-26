@@ -43,3 +43,7 @@ Blockly.Msg.BLOCK_OLED_MARQUEE_STOP_HELPURL = ""
 Blockly.Msg.BLOCK_OLED_MARQUEE_ACTIVE_MESSAGE0 = "is running?"
 Blockly.Msg.BLOCK_OLED_MARQUEE_ACTIVE_TOOLTIP = "Check if marquee is currently animating"
 Blockly.Msg.BLOCK_OLED_MARQUEE_ACTIVE_HELPURL = ""
+
+Blockly.Msg.BLOCK_OLED_MARQUEE_ROLLOVER_MESSAGE0 = "cycle ended?"
+Blockly.Msg.BLOCK_OLED_MARQUEE_ROLLOVER_TOOLTIP = "Check if the marquee cycle has completed"
+Blockly.Msg.BLOCK_OLED_MARQUEE_ROLLOVER_HELPURL = ""
