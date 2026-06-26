@@ -1,6 +1,6 @@
 {
-    "name": "Màn hình OLED I2C",
-    "description": "Mục mở rộng cho màn hình OLED I2C",
+    "name": "Màn hình OLED 0.96 inch I2C",
+    "description": "Mục mở rộng cho màn hình OLED 0.96 inch I2C - hỗ trợ tiếng Việt",
     "libs": [
         "ssd1306.py",
         "ezFBfont.py",
