@@ -117,10 +117,10 @@ Blockly.Blocks['oled_static_text'] = {
       block = block.nextConnection && block.nextConnection.targetBlock();
     }
 
-    // Disconnect all existing value input blocks before rebuilding
+    // Disconnect all existing real (non-shadow) blocks before rebuilding
     for (var i = 0; i < this.itemCount_; i++) {
       var input = this.getInput('TEXT' + i);
-      if (input && input.connection && input.connection.targetBlock()) {
+      if (input && input.connection && input.connection.targetBlock() && !input.connection.targetBlock().isShadow()) {
         input.connection.targetBlock().unplug();
       }
     }
@@ -130,6 +130,22 @@ Blockly.Blocks['oled_static_text'] = {
   },
 
   updateShape_: function() {
+    // Save existing X, Y, and shadow text values before rebuilding
+    var savedValues = [];
+    for (var i = 0; i < this.itemCount_; i++) {
+      var xVal = this.getFieldValue('X' + i);
+      var yVal = this.getFieldValue('Y' + i);
+      var textVal = null;
+      var input = this.getInput('TEXT' + i);
+      if (input && input.connection) {
+        var target = input.connection.targetBlock();
+        if (target && target.isShadow()) {
+          textVal = target.getFieldValue('TEXT');
+        }
+      }
+      savedValues.push({ x: xVal, y: yVal, text: textVal });
+    }
+
     // Remove all existing row inputs
     while (this.inputList.length > 0) {
       this.removeInput(this.inputList[0].name);
@@ -137,6 +153,11 @@ Blockly.Blocks['oled_static_text'] = {
 
     // Rebuild with new count — each row: text value input with inline X/Y fields
     for (var i = 0; i < this.itemCount_; i++) {
+      var saved = savedValues[i];
+      var xVal = saved ? (saved.x !== null ? parseInt(saved.x, 10) : 0) : 0;
+      var yVal = saved ? (saved.y !== null ? parseInt(saved.y, 10) : 0) : 0;
+      var textVal = saved && saved.text !== null ? saved.text : 'Xin chào';
+
       // Create a value input for the text (allows attaching variable/text blocks)
       var textInput = this.appendValueInput('TEXT' + i)
           .setAlign(Blockly.ALIGN_RIGHT)
@@ -144,9 +165,18 @@ Blockly.Blocks['oled_static_text'] = {
 
         // Attach X and Y fields to the same input so they appear after the text socket
         textInput.appendField(Blockly.Msg.BLOCK_OLED_STATIC_TEXT_AT_X)
-             .appendField(new Blockly.FieldNumber(0, 0, null, 1), 'X' + i)
+             .appendField(new Blockly.FieldNumber(xVal, 0, null, 1), 'X' + i)
              .appendField(Blockly.Msg.BLOCK_OLED_STATIC_TEXT_Y)
-             .appendField(new Blockly.FieldNumber(0, 0, null, 1), 'Y' + i);
+             .appendField(new Blockly.FieldNumber(yVal, 0, null, 1), 'Y' + i);
+
+        // Attach a shadow block with default value "Xin chào"
+        var shadowXml = Blockly.utils.xml.createElement('shadow');
+        shadowXml.setAttribute('type', 'text');
+        var fieldEl = Blockly.utils.xml.createElement('field');
+        fieldEl.setAttribute('name', 'TEXT');
+        fieldEl.appendChild(Blockly.utils.xml.createTextNode(textVal));
+        shadowXml.appendChild(fieldEl);
+        textInput.connection.setShadowDom(shadowXml);
     }
   }
 };
